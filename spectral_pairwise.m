@@ -2,6 +2,7 @@ function [U U1 F P R nmi avgent AR] = spectral_pairwise(X1,X2,numClust,sigma1,si
 % INPUT:
 % OUTPUT:
     
+
     if (min(truth)==0)
         truth = truth + 1;
     end
@@ -129,6 +130,13 @@ function [U U1 F P R nmi avgent AR] = spectral_pairwise(X1,X2,numClust,sigma1,si
                 [Aj nmi_j(j) avgent_j(j)] = compute_nmi(truth,C);
                 [ARj(j),RIj(j),MIj(j),HIj(j)]=RandIndex(truth,C);
             end
+            
+                
+            disp("2---------------------");
+            disp(measure);
+            disp("2---------------------");
+            
+            
             F(i) = mean(Fj); std_F(i) = std(Fj);
             P(i) = mean(Pj); std_P(i) = std(Pj);
             R(i) = mean(Rj); std_R(i) = std(Rj); 

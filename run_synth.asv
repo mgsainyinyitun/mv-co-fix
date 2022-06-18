@@ -3,11 +3,7 @@ clear sigma;
 clc;
 % load synth3views_2clusters;
 
-% load('./database/mfeatRnSp.mat');
-% load('./database/orlRnSp.mat');
-% load('./database/WebKB.mat');
-load('./database/caltech7.mat');
-
+load('./database/mfeatRnSp.mat');
 num_views = length(data);
 
 % truth = truelabel{1};
@@ -51,9 +47,8 @@ numiter = 5;
 % fprintf('Running with the De Sa MinDis\n');
 % [F P R nmi avgent AR] = spectral_mindis(X1, X2, numClust,sigma1,sigma2, truth);
 % fprintf('Our approach with 2 views (pairwise)\n');
-  Z = constructGraphZ(X);
-   [U U1 F P R nmi avgent AR] = spectral_pairwise(X{1}',X{2}',numClust,sigma(1),sigma(2),lambda,truth,numiter);
-   [U U1 F P R nmi avgent AR] = spectral_pairwise(Z{1}',Z{2}',numClust,sigma(1),sigma(2),lambda,truth,numiter);
+  Z = constructGraphZ
+ [U U1 F P R nmi avgent AR] = spectral_pairwise(X{1}',X{2}',numClust,sigma(1),sigma(2),lambda,truth,numiter);
 % fprintf('Our approach with 2 views (centroid)\n');
 % lambda1 = 0.5; lambda2 = 0.5;
 % [U U1 F P R nmi avgent AR] = spectral_centroid(X1,X2,numClust,sigma1,sigma2,lambda1,lambda2,truth,numiter);
